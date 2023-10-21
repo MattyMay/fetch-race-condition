@@ -23,17 +23,17 @@ $ ./bin/run
 Navigate to `localhost:8000` in your browser. You should see three buttons:
 
 
-![Three buttons](buttons.png)
+![Three buttons](screenshots/buttons.png)
 
 When you click a button, a request will be made to the server. The URL of the request is `/data/<datumid>/`. When we get a response, we expect to see the datum loaded:
 
-![Datum loaded](datum-loaded.png)
+![Datum loaded](screenshots/datum-loaded.png)
 
 ## Expose the race condition
 
 The server route to return a datum is configured to respond slowly when datum #2 is requested. Click "Load Datum #2" and you should see a loading state for several seconds before seeing the datum displayed:
 
-![Loading](loading.png)
+![Loading](screenshots/loading.png)
 
 Once the datum is displayed, try clicking the button again but this time click one of the other buttons before the datum is displayed. What you should see is the new datum get displayed, but then after several seconds the displayed datum should switch back to datum #2! This is because after clicking another button to load a different datum, there was still an outstanding request for datum #2, and once the response finally arrives the function that updates the UI for datum #2 runs. This is incorrect behavior, because the user expects that a different datum be displayed after pressing the other button.
 
