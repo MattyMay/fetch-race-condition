@@ -4,7 +4,7 @@
 
 Clone the repo and `cd` into the directory:
 ```console
-$ git@github.com:MattyMay/fetch-race-condition.git
+$ git clone git@github.com:MattyMay/fetch-race-condition.git
 $ cd fetch-race-condition
 ```
 
